@@ -47,14 +47,9 @@ class SpecialWordFinder(WordFinder):
     or words that begin with a special character.
     """
 
-    def __init__(self, words):
-        # get parent class [`super()`], call its `__init__()`
-        super().__init__(words)
-
-        self.filter_words = [
-            word for word in self.words if word != "" and not word.startswith("#")
+    def get_words(self, file_contents):
+        return [
+            word.strip()
+            for word in file_contents
+            if word.strip() and not word.startswith("#")
         ]
-
-    def get_words(self):
-        for word in self.filter_words:
-            return word
