@@ -37,7 +37,7 @@ class WordFinder:
 class SpecialWordFinder(WordFinder):
     """
     Method that returns a random word from a list of words but omits blank lines
-    or words that begin with a special character.
+    or words that begin with a pound sign indicating a new category
     >>> swf = SpecialWordFinder("specialwordtester.txt")
     4 words read
 
