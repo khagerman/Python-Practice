@@ -33,10 +33,6 @@ class WordFinder:
         """Return random word from file given"""
         return random.choice(self.words)
 
-    def __repr__(self):
-        "Show reprenstation"
-        return f"<start={self.start} current_num={self.current_num}>"
-
 
 class SpecialWordFinder(WordFinder):
     """
