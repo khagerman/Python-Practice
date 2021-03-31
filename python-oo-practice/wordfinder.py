@@ -18,15 +18,19 @@ import random
 
 
 class WordFinder:
-    def __init__(self, file_name="words.txt"):
+    def __init__(self, file):
 
         # get file to read
-        # get words from file
+
         # print number of words read in file
 
-        self.file_name = file_name
-        self.words = open(self.file_name).read().splitlines()
+        file_contents = open(file)
+        self.words = self.get_words(file_contents)
         print(f"{len(self.words)} words read")
+
+    def get_words(self, file_contents):
+        """get words from file given"""
+        return file_contents.read().splitlines()
 
     def random(self):
         """Return random word from file given"""
@@ -46,11 +50,11 @@ class SpecialWordFinder(WordFinder):
     def __init__(self, words):
         # get parent class [`super()`], call its `__init__()`
         super().__init__(words)
+
         self.filter_words = [
             word for word in self.words if word != "" and not word.startswith("#")
         ]
-        print(f"{len(self.filter_words)} words read")
 
-    def check_if_word(self):
+    def get_words(self):
         for word in self.filter_words:
             return word
