@@ -1,23 +1,20 @@
-"""Word Finder: finds random words from a dictionary.
->>> wf = WordFinder("sample.txt")
-3 words read
-
->>> wf.random()
-'cat'
-
->>> wf.random()
-'cat'
-
->>> wf.random()
-'porcupine'
-
->>> wf.random()
-'dog'
-"""
 import random
 
 
 class WordFinder:
+    """Word Finder: finds random words from a dictionary.
+    >>> wf = WordFinder("sample.txt")
+    3 words read
+
+    >>> wf.random() in ["cat", "dog", "porcupine"]
+    True
+
+    >>> wf.random() in ["cat", "dog", "porcupine"]
+    True
+
+    >>> wf.random() in ["cat", "dog", "porcupine"]
+    True"""
+
     def __init__(self, file):
 
         # get file to read
@@ -45,6 +42,17 @@ class SpecialWordFinder(WordFinder):
     """
     Method that returns a random word from a list of words but omits blank lines
     or words that begin with a special character.
+    >>> swf = SpecialWordFinder("specialwordtester.txt")
+    4 words read
+
+    >>> swf.random() in ["kale", "parsnips", "apple", "mango"]
+    True
+
+    >>> swf.random() in ["kale", "parsnips", "apple", "mango"]
+    True
+
+    >>> swf.random() in ["kale", "parsnips", "apple", "mango"]
+    True
     """
 
     def get_words(self, file_contents):
